@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html lang="th"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>CU-TEP Reading Practice</title>
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="css/style.css">
+</head><body>
+<header>
+<div class="brand"><div class="logo">CU</div><div><h1>CU-TEP Practice</h1><small>Better Reading · Higher Score · Your Future</small></div></div>
+<div class="topnav">
+<button onclick="showHome()">⌂ หน้าหลัก</button>
+<button onclick="showStats()">▥ สถิติ</button>
+<button class="optional" onclick="showVocab()">⚙ คำศัพท์</button>
+<div class="guest"><div class="avatar">◯</div><span>Guest⌄</span></div>
+</div>
+</header>
+<div class="app">
+<aside class="sidebar">
+<div class="side-nav">
+<button class="active" onclick="showHome()">▣  ฝึกทำข้อสอบ</button>
+<button onclick="showHome()">▤  คลังบทความทั้งหมด</button>
+<button onclick="showVocab()">▣  สรุปคำศัพท์ (Vocabulary)</button>
+<button onclick="setMode('error')">▱  Error Identification</button>
+<button onclick="setMode('cloze')">◈  Cloze Test</button>
+</div>
+<div class="sideTitle">เลือกระดับความยาก</div>
+<div class="levels" id="levels"></div>
+<div class="stats"><b>สถิติของคุณ</b>
+<div class="row"><span>ตอบแล้ว</span><b id="done">0</b></div>
+<div class="row"><span>Accuracy</span><b id="acc">0%</b></div>
+<div class="row"><span>Vocabulary</span><b id="vc">0</b></div>
+</div>
+<div class="quote">“Small steps every day<br/>lead to big results.”<b>— CU-TEP</b></div>
+</aside>
+<main>
+<div class="main-inner">
+<section id="home">
+<div class="topbar">
+<button class="back" onclick="showHome()">←</button>
+<div class="exam-title"><strong id="modeTitle">Level 1</strong><span id="levelPill">(A2–B1)</span></div>
+<div class="sep"></div>
+<div class="exam-meta"><span id="modeDesc">ชุดที่ 1</span> · <span id="metaTop">ข้อที่ 1 / 5</span></div>
+<div class="timer"><span>◷</span><b id="timerTextTop">00:00</b><button class="pause" id="pauseBtn" onclick="alert('โหมดจับเวลานี้ใช้กับ Error Simulation')">Ⅱ หยุดทำแบบทดสอบ</button></div>
+</div>
+<div class="modebar" style="margin-top:8px">
+<button class="modebtn active" id="modeReading" onclick="setMode('reading')">📖 Reading</button>
+<button class="modebtn" id="modeError" onclick="setMode('error')">✏️ Error</button>
+<button class="modebtn" id="modeCloze" onclick="setMode('cloze')">🧩 Cloze</button>
+<div class="error-simbar" id="errorSimBar"><button class="primary" onclick="startErrorSim()">🎯 Error CU-TEP Simulation · 30 ข้อ / 30 นาที</button></div>
+<div class="mode-stat" id="simTimer" style="display:none"><b>30:00</b></div>
+</div>
+</section>
+<div class="workspace">
+<section class="panel passage-panel">
+<div class="panelHead"><b id="meta">Passage</b><span class="pill" id="passageCount">1 / 120</span></div>
+<article class="passage" id="passage"></article>
+</section>
+<div class="right-column">
+<section class="panel question-panel">
+<div class="panelHead"><b id="questionMeta">คำถามที่ 1</b><span id="questionCount">1 / 5</span></div>
+<div class="question-scroll" id="questionArea"></div>
+<div class="controls"><button class="secondary" onclick="previous()">‹ ข้อก่อนหน้า</button><button class="primary" id="nextButton" onclick="next()">ตรวจคำตอบ</button></div>
+</section>
+<section class="panel right-panel">
+<div class="panelHead"><b>เฉลยและคำอธิบาย</b><span id="rightStatus">Learning Mode</span></div>
+<div class="right-scroll"><div class="detail hidden" id="detail"></div></div>
+</section>
+</div>
+</div>
+<div id="cards"></div>
+<section class="other-shell hidden" id="other"></section>
+</div>
+</main>
+</div>
+
+
+  <script src="js/app.js"></script>
+</body></html>
